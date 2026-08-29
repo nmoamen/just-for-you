@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>مفاجأة عيد ميلاد 🎁</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background layers: stars + floating particles (shared across all screens) -->
+  <div class="bg-layer">
+    <canvas id="stars-canvas"></canvas>
+    <div id="particles-container"></div>
+    <div class="glow glow-purple"></div>
+    <div class="glow glow-pink"></div>
+    <div class="glow glow-gold"></div>
+  </div>
+
+  <!-- Cinematic vignette (darkens the edges for depth) -->
+  <div class="vignette"></div>
+
+  <!-- Confetti canvas overlay -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Music control (hidden until music starts) -->
+  <button id="music-toggle" class="music-btn hidden" aria-label="تشغيل/إيقاف الموسيقى">
+    <span id="music-icon">🔊</span>
+  </button>
+
+  <main id="app">
+
+    <!-- SCREEN 1: THE SURPRISE -->
+    <section class="screen active" id="screen-1">
+      <div class="side-deco left fade-in delay-1">🎉</div>
+      <div class="side-deco right fade-in delay-1">🎊</div>
+
+      <p class="eyebrow fade-in">في حاجة صغيرة معمولة مخصوص ليكي... 👀</p>
+      <div class="lux-divider fade-in delay-1"></div>
+
+      <div class="gift-wrap fade-in delay-1">
+        <div class="gift-box" id="gift-box">
+          <div class="gift-lid"></div>
+          <div class="gift-base"></div>
+          <div class="gift-ribbon-v"></div>
+          <div class="gift-ribbon-h"></div>
+          <div class="gift-bow">🎀</div>
+          <div class="gift-sparkle s1">✨</div>
+          <div class="gift-sparkle s2">✨</div>
+          <div class="gift-sparkle s3">✨</div>
+          <div class="gift-halo"></div>
+        </div>
+      </div>
+
+      <p class="prompt fade-in delay-2">مستعدة؟</p>
+
+      <button class="btn btn-primary fade-in delay-3" id="open-gift-btn">
+        افتحي الهدية <span class="btn-emoji">🎁</span>
+      </button>
+    </section>
+
+    <!-- SCREEN 2: THE MAIN BIRTHDAY MESSAGE -->
+    <section class="screen" id="screen-2">
+      <div class="side-deco left">✨</div>
+      <div class="side-deco right">💫</div>
+
+      <h1 class="main-title" id="main-title"></h1>
+
+      <div class="message-frame">
+        <span class="corner corner-tl">✦</span>
+        <span class="corner corner-tr">✦</span>
+        <div class="message-box" id="message-lines"></div>
+        <span class="corner corner-bl">✦</span>
+        <span class="corner corner-br">✦</span>
+      </div>
+
+      <button class="btn btn-secondary hidden" id="final-btn">
+        لسه في حاجة أخيرة... <span class="btn-emoji">👀</span>
+      </button>
+    </section>
+
+    <!-- SCREEN 3: FINAL SURPRISE -->
+    <section class="screen" id="screen-3">
+      <div class="side-deco left">💫</div>
+      <div class="side-deco right">✨</div>
+
+      <div class="glow-heart" id="glow-heart">💖</div>
+
+      <div class="final-frame">
+        <span class="corner corner-tl">✦</span>
+        <span class="corner corner-tr">✦</span>
+        <div class="final-text" id="final-lines"></div>
+        <span class="corner corner-bl">✦</span>
+        <span class="corner corner-br">✦</span>
+      </div>
+
+      <button class="btn btn-ghost hidden" id="replay-btn">
+        نرجع من الأول؟ 🔄
+      </button>
+    </section>
+
+  </main>
+
+  <audio id="bg-music" loop preload="none"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
